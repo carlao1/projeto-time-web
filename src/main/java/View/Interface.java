@@ -1,0 +1,1255 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package View;
+
+import Controller.JogadorController;
+import Controller.PresidenteController;
+import Controller.SocioController;
+import Controller.TreinadorController;
+import Dao.JogadorDao;
+import Dao.PresidenteDao;
+import Dao.SocioDao;
+import Dao.TreinadorDao;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import javax.swing.table.DefaultTableModel;
+import Model.Jogador;
+import Model.Treinador;
+import Model.Presidente;
+import Model.Socio;
+import javax.swing.JFrame;
+
+/**
+ *
+ * @author Carlos
+ */
+public class Interface extends javax.swing.JFrame {
+    
+    ArrayList<Jogador> listaJogador = new ArrayList<Jogador>();
+    ArrayList<Presidente> listaPresidente = new ArrayList<Presidente>();
+    ArrayList<Treinador> listaTreinador = new ArrayList<Treinador>();
+    ArrayList<Socio> listaSocio = new ArrayList<Socio>();
+    private ArrayList<Jogador> listajogador;
+    
+    private JogadorController jogadorCtrl;
+    private SocioController socioCtrl;
+    private PresidenteController presidenteCtrl;
+    private TreinadorController treinadorCtrl;
+    
+    private DefaultTableModel tableJogador;
+    private DefaultTableModel tablePresidente;
+    private DefaultTableModel tableSocio;
+    private DefaultTableModel tableTreinador;
+
+    /**
+     * Creates new form Interface
+     */
+    public Interface() {
+        initComponents();
+        //DefaultTableModel dtm = DoadorController.gerarTabelaDoadores(pesquisa);
+       // jTableDoadores.setModel(dtm);
+       
+       //INICIALIZACAO DOS CONTROLLERS
+        this.jogadorCtrl = new JogadorController(); //Passar durante a construcao eh possivel tambem 
+        
+        this.socioCtrl = new SocioController();
+        
+        this.presidenteCtrl = new PresidenteController();
+        
+        this.treinadorCtrl = new TreinadorController();
+       
+       
+       
+        /*DefaultTableModel dtmJogador = new DefaultTableModel();
+        
+        dtmJogador = new DefaultTableModel(new String[]{"Nome", "sexo", "idade", "CPF"},0){
+            @Override
+            public boolean isCellEditable(int rowIndex, int mColIndex) { // tornar as células não editáveis
+                return false;
+            }
+        };
+        
+        for(String[] linha : this.jogadorCtrl.obterTodos()){
+            dtmJogador.addRow(linha);
+        }
+        //this.jogadorCtrl.obterTodos();
+        
+        
+        this.tableJogador = dtmJogador;
+        jTable1Jogador.setModel(this.tableJogador);
+        
+       
+     
+       DefaultTableModel dtmTreinador = new DefaultTableModel();
+        
+        dtmTreinador = new DefaultTableModel(new String[]{"Nome", "sexo", "idade","CPF"},0){
+            @Override
+            public boolean isCellEditable(int rowIndex, int mColIndex) { // tornar as células não editáveis
+                return false;
+            }
+        };
+        
+        for(String[] linha : this.treinadorCtrl.obterTodos()){
+            dtmTreinador.addRow(linha);
+        }
+        this.tableTreinador = dtmTreinador;
+        jTable1Treinador.setModel(this.tableTreinador);
+        
+        
+        
+        DefaultTableModel dtmPresidente = new DefaultTableModel();
+        
+        dtmPresidente = new DefaultTableModel(new String[]{"Nome", "sexo", "idade","CPF"},0){
+            @Override
+            public boolean isCellEditable(int rowIndex, int mColIndex) { // tornar as células não editáveis
+                return false;
+            }
+        };
+        
+        for(String[] linha : this.presidenteCtrl.obterTodos()){
+            dtmPresidente.addRow(linha);
+        }
+        this.tablePresidente = dtmPresidente;
+        jTablePresidente.setModel(this.tablePresidente);
+        
+        
+        
+        
+        DefaultTableModel dtmSocio = new DefaultTableModel();
+        
+        dtmSocio = new DefaultTableModel(new String[]{"Nome", "sexo", "idade","CPF"},0){
+            @Override
+            public boolean isCellEditable(int rowIndex, int mColIndex) { // tornar as células não editáveis
+                return false;
+            }
+        };
+        
+        for(String[] linha : this.socioCtrl.obterTodos()){
+            dtmSocio.addRow(linha);
+        }
+        this.tableSocio = dtmSocio;
+        jTable1Socio.setModel(this.tableSocio);*/
+        
+        
+        this.updateTables();
+        
+        //DESCOMENTAR CONFORME AS LISTAGENS FICAREM PRONTAS
+        //listarJogadores();
+        
+        //listarPresidente();
+        
+        //listarTreinador();
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        inputNome = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        inputIdadePresidente = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        inputCPFPresidente = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        inputSexoPresidente = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTablePresidente = new javax.swing.JTable();
+        jButton5 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        inputNomeTreinador = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        inputSexoTreinador = new javax.swing.JTextField();
+        inputIdadeTreinador = new javax.swing.JTextField();
+        inputCPFTreinador = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1Treinador = new javax.swing.JTable();
+        jButton8 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        inputNomeJogador = new javax.swing.JTextField();
+        inputIdadeJogador = new javax.swing.JTextField();
+        inputSexoJogador = new javax.swing.JTextField();
+        inputCPFJogador = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1Jogador = new javax.swing.JTable();
+        jButton6 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        inputNomeSocio = new javax.swing.JTextField();
+        inputIdadeSocio = new javax.swing.JTextField();
+        inputSexoSocio = new javax.swing.JTextField();
+        inputCPFSocio = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1Socio = new javax.swing.JTable();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.setToolTipText("Cadastrar Disciplina");
+
+        jLabel1.setText("Nome:");
+
+        inputNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNomeActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Idade:");
+
+        jLabel3.setText("CPF:");
+
+        jButton3.setText("Cadastrar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Sexo");
+
+        inputSexoPresidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputSexoPresidenteActionPerformed(evt);
+            }
+        });
+
+        jTablePresidente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTablePresidente);
+
+        jButton5.setText("Detalhes");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("Atualizar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 7, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jButton3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel4)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(inputNome, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                            .addComponent(inputIdadePresidente)
+                            .addComponent(inputCPFPresidente)
+                            .addComponent(inputSexoPresidente)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton11)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(inputNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(inputSexoPresidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(inputIdadePresidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputCPFPresidente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(39, 39, 39)
+                .addComponent(jButton3)
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton11))
+                .addContainerGap(1281, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Cadastrar Presidente", jPanel1);
+
+        jLabel5.setText("Nome:");
+
+        jLabel6.setText("Sexo:");
+
+        jLabel7.setText("Idade:");
+
+        jLabel8.setText("CPF:");
+
+        jButton2.setText("Cadastrar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTable1Treinador.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1Treinador);
+
+        jButton8.setText("Detalhes");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Atualizar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(18, 18, 18)
+                            .addComponent(inputNomeTreinador, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel8))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(inputSexoTreinador)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(inputIdadeTreinador, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(inputCPFTreinador))))
+                    .addComponent(jButton2))
+                .addContainerGap(222, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton12)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(inputNomeTreinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(inputSexoTreinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(inputIdadeTreinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(inputCPFTreinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(jButton12))
+                .addContainerGap(1380, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Cadastrar Treinador", jPanel2);
+
+        jLabel9.setText("Nome:");
+
+        jLabel10.setText("CPF");
+
+        jLabel11.setText("Idade:");
+
+        jLabel12.setText("Sexo:");
+
+        inputNomeJogador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNomeJogadorActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Cadastrar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTable1Jogador.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1Jogador);
+
+        jButton6.setText("Detalhes");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Atualizar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(inputCPFJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(inputSexoJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(inputIdadeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(inputNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(inputNomeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(inputIdadeJogador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(inputSexoJogador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(inputCPFJogador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton10))
+                .addContainerGap(1317, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Cadastrar Jogador", jPanel3);
+
+        jLabel15.setText("Nome:");
+
+        jLabel16.setText("Idade:");
+
+        jLabel17.setText("Sexo:");
+
+        jLabel18.setText("CPF");
+
+        inputNomeSocio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputNomeSocioActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Cadastrar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jTable1Socio.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable1Socio);
+
+        jButton7.setText("Detalhes");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Atualizar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(jLabel15)
+                            .addGap(18, 18, 18)
+                            .addComponent(inputNomeSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel16)
+                                .addComponent(jLabel17))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(inputIdadeSocio)
+                                .addComponent(inputSexoSocio))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addGap(18, 18, 18)
+                        .addComponent(inputCPFSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(198, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton9)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(inputNomeSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(inputIdadeSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(inputSexoSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(inputCPFSocio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addComponent(jButton4)
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton9))
+                .addContainerGap(1290, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Cadastrar Sócio Torcedor", jPanel4);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.getAccessibleContext().setAccessibleName("Cadastrar Disciplina");
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void inputNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNomeActionPerformed
+
+    private void inputNomeJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeJogadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNomeJogadorActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        Jogador jogador = new Jogador();
+        jogador.setNome(inputNomeJogador.getText());
+        jogador.setIdade(Integer.valueOf(inputIdadeJogador.getText()));
+        jogador.setSexo(inputSexoJogador.getText().charAt(0));
+      //  jogador.setMatricula(matriculaJogador.getText());
+       // jogador.setAnoIngresso(Integer.valueOf(anoJogador.getText()));
+        listaJogador.add(jogador);
+        //listarJogador();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        /*Treinador treinador = new Treinador();
+        treinador.setNome(inputNomeTreinador.getText());
+        treinador.setIdade(Integer.valueOf(inputIdadeTreinador.getText()));
+        treinador.setSexo(inputSexoTreinador.getText().charAt(0));
+        listaTreinador.add(treinador);*/
+        //listarTreinador();
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    /**/
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        //CADASTRO DE PRESIDENTE
+        //NO ENTANTO, AO FINAL, TUDO DEVERIA PASSAR A UMA CLASSE CONTROLADORA //LEMBRAR DISSO DEPOIS HEIN
+        
+        String nome = this.inputNome.getText();
+        String cpf = this.inputCPFPresidente.getText();
+        char sexo = 'M';//ATENCAO: FALTANDO SEXO NOS CAMPOS
+        String idade = this.inputIdadePresidente.getText();
+        
+        Map<String, String> inputData = new HashMap<String, String>(); //PODERIA USAR QUALQUER OUTRA ESTRUTURA, EU GOSTO DE MAP PRA ISSO
+        inputData.put("nome", nome);
+        inputData.put("cpf", cpf);
+        inputData.put("sexo", String.valueOf(sexo));
+        inputData.put("idade", idade);
+        
+        boolean result = this.presidenteCtrl.criar(inputData);
+        
+        /*this.listaPresidente.add(p1); //ANALOGO AO BD
+        
+        for (Presidente pres: this.listaPresidente){
+            pres.imprimir();//DEMONSTRATIVO APENAS
+        }*/
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void inputNomeSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeSocioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNomeSocioActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String nome = this.inputNomeSocio.getText();
+        String cpf = this.inputCPFSocio.getText();
+        char sexo = 'M';//ATENCAO: FALTANDO SEXO NOS CAMPOS
+        String idade = this.inputIdadeSocio.getText();
+        
+        
+        Map<String, String> inputData = new HashMap<String, String>(); //PODERIA USAR QUALQUER OUTRA ESTRUTURA, EU GOSTO DE MAP PRA ISSO
+        inputData.put("nome", nome);
+        inputData.put("cpf", cpf);
+        inputData.put("sexo", String.valueOf(sexo));
+        inputData.put("idade", idade);
+        
+        boolean result = this.socioCtrl.criar(inputData);
+        
+        
+        /*this.listaSocio.add(p1); //ANALOGO AO BD
+        
+        for (Socio soc: this.listaSocio){
+            soc.imprimir();//DEMONSTRATIVO APENAS
+        }// TODO add your handling code here:
+        
+        */
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        String nome = this.inputNomeTreinador.getText();
+        String cpf = this.inputCPFTreinador.getText();
+        char sexo = 'M';//ATENCAO: FALTANDO SEXO NOS CAMPOS
+        String idade = this.inputIdadeTreinador.getText();
+        
+        
+        Map<String, String> inputData = new HashMap<String, String>(); //PODERIA USAR QUALQUER OUTRA ESTRUTURA, EU GOSTO DE MAP PRA ISSO
+        inputData.put("nome", nome);
+        inputData.put("cpf", cpf);
+        inputData.put("sexo", String.valueOf(sexo));
+        inputData.put("idade", idade);
+        
+        boolean result = this.treinadorCtrl.criar(inputData);
+        
+        /*this.listaTreinador.add(p1); //ANALOGO AO BD
+        
+        for (Treinador trei: this.listaTreinador){
+            trei.imprimir();//DEMONSTRATIVO APENAS
+        }*/
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        String nome = this.inputNomeJogador.getText();
+        String cpf = this.inputCPFJogador.getText();
+        char sexo = 'M';//ATENCAO: FALTANDO SEXO NOS CAMPOS
+        String idade = this.inputIdadeJogador.getText();
+        
+        Map<String, String> inputData = new HashMap<String, String>(); //PODERIA USAR QUALQUER OUTRA ESTRUTURA, EU GOSTO DE MAP PRA ISSO
+        inputData.put("nome", nome);
+        inputData.put("cpf", cpf);
+        inputData.put("sexo", String.valueOf(sexo));
+        inputData.put("idade", idade);
+        
+        boolean result = this.jogadorCtrl.criar(inputData);
+        
+        
+        
+        
+        //LÓGICA DE VALIDAÇÃO AQUI, CHAMADA A FAZER
+        
+        //LÓGICA DE CRIAÇÃO AQUI (CHAMADA A CONTROLADOR FUTURAMENTE)
+        /*Jogador p1 = new Jogador();
+        
+        p1.preencherJogador(idade, nome, sexo, cpf);
+        
+        //FUTURE: FUNCIONALIDADE DO CONTROLADOR
+        JogadorDao dao = new JogadorDao();
+        
+        boolean isCreated = dao.create(p1);
+        
+        if(isCreated){
+            //FUTURE: IDEALMENTE, UMA MENSAGEM POPUP OU ALGO ASSIM
+            System.out.println("Jogador criado");
+        }*/
+        
+        
+        //this.listaJogador.add(p1); //ANALOGO AO BD
+        
+        /*for (Jogador jog: this.listaJogador){
+            jog.imprimir();//DEMONSTRATIVO APENAS
+        } // TODO add your handling code here:
+        
+        */
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void inputSexoPresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSexoPresidenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputSexoPresidenteActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        
+        //FALTA TRATAR POSSIVEIS ERROS
+        
+        int selectedRowIndex = this.jTable1Jogador.getSelectedRow();
+        
+        //System.out.println((String[])this.tableJogador.getDataVector().get(selectedRowIndex).toArray());
+        
+        /*for(Object o : this.tableJogador.getDataVector().get(selectedRowIndex).toArray()){
+            System.out.println(o);
+        }*/
+        
+        String arrayRow = this.tableJogador.getDataVector().get(selectedRowIndex).toString();
+        
+        Detalhes d1 = new Detalhes(adaptacaoEleganteJavaAntigo(arrayRow, selectedRowIndex), "Jogador");
+        
+        d1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        
+        d1.setVisible(true);
+        
+        
+        //NOVAMENTE, HA MELHORES MANEIRAS
+        /*Object[] selecao = this.tableJogador.getDataVector().get(selectedRowIndex).toArray();
+        
+        Detalhes d1 = new Detalhes(new String[]{
+            String.valueOf(selecao[0]), 
+            String.valueOf(selecao[1]), 
+            String.valueOf(selecao[2]),
+            String.valueOf(selecao[3]),
+        }, "Jogador");
+        
+        d1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        
+        d1.setVisible(true);*/
+        
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = this.jTablePresidente.getSelectedRow();
+        
+        
+        String arrayRow = this.tablePresidente.getDataVector().get(selectedRowIndex).toString();
+        
+        Detalhes d1 = new Detalhes(adaptacaoEleganteJavaAntigo(arrayRow, selectedRowIndex), "Presidente");
+        
+        d1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        
+        d1.setVisible(true);
+        
+        
+        //NOVAMENTE, HA MELHORES MANEIRAS
+        /*Object[] selecao = this.tablePresidente.getDataVector().get(selectedRowIndex).toArray();
+        
+        Detalhes d1 = new Detalhes(new String[]{
+            String.valueOf(selecao[0]), 
+            String.valueOf(selecao[1]), 
+            String.valueOf(selecao[2]),
+            String.valueOf(selecao[3]),
+        }, "Presidente");
+        
+        d1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        
+        d1.setVisible(true);*/
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    public String[] adaptacaoEleganteJavaAntigo(String arrayRow, int selectedRowIndex){
+        
+        int length = arrayRow.split(", ")[3].length();
+        
+        String cpf = arrayRow.split(", ")[3].substring(0, length-1);
+    
+        return new String[]{
+            arrayRow.split(", ")[0],
+            arrayRow.split(", ")[1],
+            arrayRow.split(", ")[2],
+            cpf,
+        };
+        
+    }
+    
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedRowIndex = this.jTable1Socio.getSelectedRow();
+        
+        /*System.out.println(this.tableSocio.getDataVector().get(selectedRowIndex).toString().split(", ")[0].substring(1));
+        System.out.println(this.tableSocio.getDataVector().get(selectedRowIndex).toString().split(", ")[1]);
+        System.out.println(this.tableSocio.getDataVector().get(selectedRowIndex).toString().split(", ")[3]);*/
+        
+        //NOVAMENTE, HA MELHORES MANEIRAS
+        //Object[] selecao = this.tableSocio.getDataVector().get(selectedRowIndex);//.toArray();
+        
+        String arrayRow = this.tableSocio.getDataVector().get(selectedRowIndex).toString();
+        
+        Detalhes d1 = new Detalhes(adaptacaoEleganteJavaAntigo(arrayRow, selectedRowIndex), "Socio");
+        
+        d1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        
+        d1.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedRowIndex = this.jTable1Treinador.getSelectedRow();
+        
+        String arrayRow = this.tableTreinador.getDataVector().get(selectedRowIndex).toString();
+        
+        Detalhes d1 = new Detalhes(adaptacaoEleganteJavaAntigo(arrayRow, selectedRowIndex), "Treinador");
+        d1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        d1.setVisible(true);
+        
+        
+        
+        
+        //NOVAMENTE, HA MELHORES MANEIRAS
+        /*Object[] selecao = this.tableTreinador.getDataVector().get(selectedRowIndex).toArray();
+        
+        Detalhes d1 = new Detalhes(new String[]{
+            String.valueOf(selecao[0]), 
+            String.valueOf(selecao[1]), 
+            String.valueOf(selecao[2]),
+            String.valueOf(selecao[3]),
+        }, "Treinador");
+        
+        d1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        
+        d1.setVisible(true);*/
+        
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    
+    public void updateTables(){
+    
+        DefaultTableModel dtmJogador = new DefaultTableModel();
+        
+        dtmJogador = new DefaultTableModel(new String[]{"Nome", "sexo", "idade", "CPF"},0){
+            @Override
+            public boolean isCellEditable(int rowIndex, int mColIndex) { // tornar as células não editáveis
+                return false;
+            }
+        };
+        
+        for(String[] linha : this.jogadorCtrl.obterTodos()){
+            dtmJogador.addRow(linha);
+        }
+        
+        this.tableJogador = dtmJogador;
+        jTable1Jogador.setModel(this.tableJogador);
+        
+       
+     
+       DefaultTableModel dtmTreinador = new DefaultTableModel();
+        
+        dtmTreinador = new DefaultTableModel(new String[]{"Nome", "sexo", "idade","CPF"},0){
+            @Override
+            public boolean isCellEditable(int rowIndex, int mColIndex) { // tornar as células não editáveis
+                return false;
+            }
+        };
+        
+        for(String[] linha : this.treinadorCtrl.obterTodos()){
+            dtmTreinador.addRow(linha);
+        }
+        this.tableTreinador = dtmTreinador;
+        jTable1Treinador.setModel(this.tableTreinador);
+        
+        
+        
+        DefaultTableModel dtmPresidente = new DefaultTableModel();
+        
+        dtmPresidente = new DefaultTableModel(new String[]{"Nome", "sexo", "idade","CPF"},0){
+            @Override
+            public boolean isCellEditable(int rowIndex, int mColIndex) { // tornar as células não editáveis
+                return false;
+            }
+        };
+        
+        for(String[] linha : this.presidenteCtrl.obterTodos()){
+            dtmPresidente.addRow(linha);
+        }
+        this.tablePresidente = dtmPresidente;
+        jTablePresidente.setModel(this.tablePresidente);
+        
+        
+        
+        
+        DefaultTableModel dtmSocio = new DefaultTableModel();
+        
+        dtmSocio = new DefaultTableModel(new String[]{"Nome", "sexo", "idade","CPF"},0){
+            @Override
+            public boolean isCellEditable(int rowIndex, int mColIndex) { // tornar as células não editáveis
+                return false;
+            }
+        };
+        
+        for(String[] linha : this.socioCtrl.obterTodos()){
+            dtmSocio.addRow(linha);
+        }
+        this.tableSocio = dtmSocio;
+        jTable1Socio.setModel(this.tableSocio);
+        
+    }
+    
+    
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        
+        updateTables();
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        
+        updateTables();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        this.updateTables();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        this.updateTables();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void listarTreinador(){
+        String texto = " ";
+        if(listaTreinador.size() > 0){
+         for (int counter = 0; counter < listaTreinador.size(); counter++) { 		      
+             texto += listaTreinador.get(counter).getNome() +'\n';		
+          }   
+         
+       }
+       
+    }
+    
+    
+    private void listarJogador(){
+        String texto = "";
+        if(listaJogador.size() > 0){
+            for (int counter = 0; counter < listaJogador.size(); counter++) { 
+               texto += listaJogador.get(counter).getNome() +'\n';
+            }
+        }
+        //jTextArea1.setText(texto); //AINDA NAO FOI DEFINIDO, DESCOMENTAR QUANDO FOR
+    }
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Interface().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField inputCPFJogador;
+    private javax.swing.JTextField inputCPFPresidente;
+    private javax.swing.JTextField inputCPFSocio;
+    private javax.swing.JTextField inputCPFTreinador;
+    private javax.swing.JTextField inputIdadeJogador;
+    private javax.swing.JTextField inputIdadePresidente;
+    private javax.swing.JTextField inputIdadeSocio;
+    private javax.swing.JTextField inputIdadeTreinador;
+    private javax.swing.JTextField inputNome;
+    private javax.swing.JTextField inputNomeJogador;
+    private javax.swing.JTextField inputNomeSocio;
+    private javax.swing.JTextField inputNomeTreinador;
+    private javax.swing.JTextField inputSexoJogador;
+    private javax.swing.JTextField inputSexoPresidente;
+    private javax.swing.JTextField inputSexoSocio;
+    private javax.swing.JTextField inputSexoTreinador;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1Jogador;
+    private javax.swing.JTable jTable1Socio;
+    private javax.swing.JTable jTable1Treinador;
+    private javax.swing.JTable jTablePresidente;
+    // End of variables declaration//GEN-END:variables
+
+    private void listarJogadores() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void listarPresidente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+/*    private void listarTreinador() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
+
+    private void listaSocio() {
+    throw new UnsupportedOperationException("Not supported yet.");
+        //public listaSocio() {
+        }
+    }
+
